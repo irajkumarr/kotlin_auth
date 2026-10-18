@@ -24,13 +24,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             KotlinAuthTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    containerColor = colorResource(R.color.white)
-                ) { innerPadding ->
-                    LoginScreen(modifier = Modifier.padding(innerPadding))
-
-                }
+//                Scaffold(
+//                    modifier = Modifier.fillMaxSize(),
+//                    containerColor = colorResource(R.color.white)
+//                ) { innerPadding ->
+//                    LoginScreen(modifier = Modifier.padding(innerPadding))
+//
+//                }
+                AppNavigation()
             }
         }
     }

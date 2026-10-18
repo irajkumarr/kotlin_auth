@@ -45,20 +45,23 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.kotlin_auth.R
 
 //@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier) {
+fun LoginScreen(
+    onSignupClicked: () -> Unit
+) {
     val context = LocalContext.current
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var isObscureText by remember { mutableStateOf(true) }
     var rememberMe by remember { mutableStateOf(false) }
     Column(
-        modifier
+        modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
             .padding(16.dp)
@@ -374,12 +377,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.clickable {
-                        // show toast for now
-                        Toast.makeText(
-                            context,
-                            "Sign Up clicked",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        onSignupClicked()
                     }
                 )
             }
